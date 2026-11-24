@@ -1,0 +1,703 @@
+/* ==========================================================================
+   style.css — Premium minimal theme (cream / beige / bronze accent)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500&family=Noto+Serif+Thai:wght@300;400;500&display=swap");
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Surfaces */
+  --color-white: #ffffff;
+  --color-cream: #faf6ef;
+  --color-cream-deep: #f3ece0;
+  --color-beige: #e6dac6;
+  --color-beige-dark: #8c7a62;
+
+  /* Text */
+  --color-ink: #2b2620;
+  --color-ink-soft: #5e5446;
+  --color-ink-mute: #8a7f70;
+
+  /* Accent (soft gold / bronze) */
+  --color-accent: #a98550;
+  --color-accent-dark: #8a6a3a;
+  --color-accent-soft: #d9c39a;
+
+  /* Lines */
+  --line: 1px solid rgba(43, 38, 32, 0.18);
+  --line-soft: 1px solid rgba(43, 38, 32, 0.08);
+
+  /* Mood dots (small touches only, never full backgrounds) */
+  --mood-fresh: #2f5d46;       /* เขียวเข้ม */
+  --mood-sweet: #7a5c9e;       /* ม่วงกลาง */
+  --mood-confident: #3c4d62;   /* น้ำเงินเทาเข้ม */
+  --mood-romance: #c47a7a;     /* แดงอ่อน */
+
+  /* Type */
+  --font-serif: "Cormorant Garamond", "Noto Serif Thai", Georgia, "Times New Roman", serif;
+  --font-sans: "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale (generous) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  --container: 1120px;
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s var(--ease);
+}
+
+a:hover {
+  color: var(--color-accent-dark);
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-accent-dark);
+  outline-offset: 3px;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-2);
+  color: var(--color-ink);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  color: var(--color-ink-soft);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.lead {
+  font-size: 1.125rem;
+  max-width: 38rem;
+}
+
+/* Thin gold divider */
+.divider {
+  width: 3rem;
+  height: 1px;
+  margin: var(--space-3) 0;
+  border: 0;
+  background: var(--color-accent);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center .divider,
+.text-center .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+section,
+.section {
+  padding: var(--space-6) 0;
+}
+
+.section--alt {
+  background: var(--color-cream-deep);
+}
+
+.section--white {
+  background: var(--color-white);
+}
+
+.section__head {
+  max-width: 40rem;
+  margin: 0 auto var(--space-5);
+  text-align: center;
+}
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 246, 239, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: var(--line-soft);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  position: relative;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.35s var(--ease);
+}
+
+.nav a:hover::after,
+.nav a.is-active::after {
+  width: 100%;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: var(--space-7) 0 var(--space-6);
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-deep) 100%);
+}
+
+.hero p {
+  max-width: 34rem;
+  margin: 0 auto var(--space-4);
+  font-size: 1.1rem;
+}
+
+/* ---------- Buttons (thin outline, soft dark) ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.95rem 2.5rem;
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+.btn:hover {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.btn--accent {
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
+}
+
+.btn--accent:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-white);
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---------- Mood dot ---------- */
+.mood {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+}
+
+.mood::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mood-color, var(--color-accent));
+}
+
+/* Short underline accent under a heading */
+.mood-line {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  margin-top: var(--space-1);
+  background: var(--mood-color, var(--color-accent));
+}
+
+/* Mood colours — apply via class or data-mood on the element/card */
+.mood--fresh,
+[data-mood="fresh"],
+[data-mood="herbal-fresh"] {
+  --mood-color: var(--mood-fresh);
+}
+
+.mood--sweet,
+[data-mood="sweet"] {
+  --mood-color: var(--mood-sweet);
+}
+
+.mood--confident,
+[data-mood="confident"],
+[data-mood="pro-whitening"] {
+  --mood-color: var(--mood-confident);
+}
+
+.mood--romance,
+[data-mood="romance"] {
+  --mood-color: var(--mood-romance);
+}
+
+/* ---------- Product grid & cards ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-4);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: var(--line-soft);
+  border-radius: var(--radius);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.product-card:hover {
+  border-color: var(--color-accent-soft);
+  transform: translateY(-3px);
+}
+
+.product-card__image {
+  aspect-ratio: 4 / 5;
+  background: var(--color-cream-deep);
+  overflow: hidden;
+}
+
+.product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-3);
+}
+
+.product-card__title {
+  margin: var(--space-1) 0 var(--space-1);
+  font-size: 1.15rem;
+}
+
+.product-card__desc {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.product-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: var(--space-2) 0 var(--space-3);
+  padding-top: var(--space-2);
+  border-top: var(--line-soft);
+}
+
+.product-card__size {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-mute);
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-accent-dark);
+}
+
+/* ---------- Mood filter tabs ---------- */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+
+.filter button {
+  padding: 0.4rem 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+  cursor: pointer;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.filter button:hover,
+.filter button.is-active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ---------- Forms (order form) ---------- */
+.form {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.form__group {
+  margin-bottom: var(--space-3);
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.85rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(43, 38, 32, 0.3);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-ink);
+  transition: border-color 0.3s var(--ease);
+}
+
+.form textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent-dark);
+}
+
+.form ::placeholder {
+  color: var(--color-ink-mute);
+  opacity: 0.7;
+}
+
+.form-message {
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-accent-soft);
+  background: var(--color-cream-deep);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- Order summary / table ---------- */
+.summary {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.summary th,
+.summary td {
+  padding: var(--space-2) 0;
+  text-align: left;
+  border-bottom: var(--line-soft);
+}
+
+.summary th {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink-mute);
+}
+
+.summary .total td {
+  border-bottom: var(--line);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--color-accent-dark);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: var(--space-5) 0;
+  background: var(--color-ink);
+  color: var(--color-beige);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.site-footer p,
+.site-footer a {
+  color: var(--color-beige);
+}
+
+.site-footer a:hover {
+  color: var(--color-accent-soft);
+}
+
+.site-footer .brand {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-cream);
+}
+
+/* ---------- Full-screen hero (index) ---------- */
+.hero--full {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 76px);
+  min-height: calc(100svh - 76px);
+  padding: var(--space-6) 0;
+}
+
+.hero--full .container {
+  max-width: 52rem;
+}
+
+.hero--full h1 {
+  margin-bottom: var(--space-3);
+}
+
+/* ---------- Mood cards (index) ---------- */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.mood-card {
+  display: block;
+  padding: var(--space-4) var(--space-3);
+  background: var(--color-white);
+  border: var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.mood-card:hover {
+  border-color: var(--mood-color, var(--color-accent));
+  transform: translateY(-3px);
+  color: inherit;
+}
+
+.mood-card h3 {
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+}
+
+.mood-card .mood-line {
+  margin-bottom: var(--space-3);
+}
+
+.mood-card p {
+  font-size: 0.92rem;
+}
+
+.mood-card__more {
+  display: inline-block;
+  margin-top: var(--space-1);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  section,
+  .section {
+    padding: var(--space-5) 0;
+  }
+
+  .hero {
+    padding: var(--space-6) 0 var(--space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --space-6: 4rem;
+    --space-7: 5rem;
+  }
+
+  body {
+    line-height: 1.75;
+  }
+
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  .site-header .container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .nav {
+    gap: var(--space-3);
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+
+  .filter {
+    gap: var(--space-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

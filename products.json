@@ -1,0 +1,42 @@
+[
+  {
+    "id": "herbal-fresh-50",
+    "name": "ยาสีฟัน FRESH & WHITE สูตรสมุนไพรเย็นสดชื่น (Herbal Fresh) เล็ก",
+    "mood": "Herbal Fresh",
+    "type": "tube",
+    "size": "50g",
+    "price": 69,
+    "image": "images/herbal-fresh.jpg",
+    "description": "ยาสีฟันสูตรสมุนไพร ให้ความเย็นสดชื่นทั่วช่องปาก ขนาดเล็ก 50 กรัม พกพาสะดวก เหมาะสำหรับลองใช้หรือพกติดกระเป๋า"
+  },
+  {
+    "id": "herbal-fresh-100",
+    "name": "ยาสีฟัน FRESH & WHITE สูตรสมุนไพรเย็นสดชื่น (Herbal Fresh) ใหญ่",
+    "mood": "Herbal Fresh",
+    "type": "tube",
+    "size": "100g",
+    "price": 129,
+    "image": "images/herbal-fresh.jpg",
+    "description": "ยาสีฟันสูตรสมุนไพร ให้ความเย็นสดชื่นทั่วช่องปาก ขนาดใหญ่ 100 กรัม คุ้มค่าสำหรับใช้ประจำที่บ้าน"
+  },
+  {
+    "id": "pro-whitening-50",
+    "name": "ยาสีฟัน FRESH & WHITE สูตรฟันขาว & ลดเสียวฟัน (Pro Whitening) เล็ก",
+    "mood": "Pro Whitening",
+    "type": "tube",
+    "size": "50g",
+    "price": 79,
+    "image": "images/pro-whitening.jpg",
+    "description": "ยาสีฟันสูตรฟันขาวและช่วยลดอาการเสียวฟัน ขนาดเล็ก 50 กรัม พกพาสะดวก เหมาะสำหรับลองใช้หรือพกติดกระเป๋า"
+  },
+  {
+    "id": "pro-whitening-100",
+    "name": "ยาสีฟัน FRESH & WHITE สูตรฟันขาว & ลดเสียวฟัน (Pro Whitening) ใหญ่",
+    "mood": "Pro Whitening",
+    "type": "tube",
+    "size": "100g",
+    "price": 149,
+    "image": "images/pro-whitening.jpg",
+    "description": "ยาสีฟันสูตรฟันขาวและช่วยลดอาการเสียวฟัน ขนาดใหญ่ 100 กรัม คุ้มค่าสำหรับใช้ประจำที่บ้าน"
+  }
+]
